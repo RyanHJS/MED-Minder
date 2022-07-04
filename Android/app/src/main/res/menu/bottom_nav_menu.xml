@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Medication"
+        android:icon="@drawable/ic_baseline_medical_services_24"
+        android:id="@+id/Medication"
+        />
+
+
+    <item android:title="Today"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:id="@+id/Today"
+        />
+
+
+    <item android:title="Information"
+        android:icon="@drawable/ic_baseline_medical_information_24"
+        android:id="@+id/Information"
+        />
+
+
+</menu>

@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Medminder"
+rootProject.name = "Bottom Navigation Bar"
 include ':app'
