@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.medminder.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_medications"
+        android:name="com.example.medminder.ui.medication.MedicationFragment"
+        android:label="@string/title_medication"
+        tools:layout="@layout/fragment_medication" />
 
     <fragment
         android:id="@+id/navigation_notifications"
