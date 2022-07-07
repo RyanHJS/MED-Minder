@@ -13,6 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Medminder"
         tools:targetApi="31">
+
+        // Main Activity
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -24,6 +26,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        // User Profile Activity
+        <activity android:name="com.example.medminder.UserProfileActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.medminder.UserProfileActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

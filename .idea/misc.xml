@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2601317122593718" />
+        <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.3015625" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.25962512664640325" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.2601317122593718" />
         <entry key="app/src/main/res/layout/fragment_medication.xml" value="0.2601317122593718" />
+        <entry key="app/src/main/res/xml/preference.xml" value="0.23295062351971865" />
       </map>
     </option>
   </component>

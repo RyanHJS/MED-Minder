@@ -1,7 +1,14 @@
 package com.example.medminder;
 
-import androidx.fragment.app.Fragment;
+import android.os.Bundle;
 
-public class InformationFragment extends Fragment {
+import androidx.preference.PreferenceFragmentCompat;
 
+public class InformationFragment extends PreferenceFragmentCompat {
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        //Load preferences from xml
+        setPreferencesFromResource(R.xml.preference, rootKey);
+    }
 }
