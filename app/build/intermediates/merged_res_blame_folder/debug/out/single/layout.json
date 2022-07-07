@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\chery\\.gradle\\daemon\\7.3.3\\com.example.medminder.app-mergeDebugResources-34:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\chery\\.gradle\\daemon\\7.3.3\\com.example.medminder.app-main-37:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\chery\\.gradle\\daemon\\7.3.3\\com.example.medminder.app-mergeDebugResources-34:\\layout\\fragment_dashboard.xml",
+        "source": "C:\\Users\\chery\\.gradle\\daemon\\7.3.3\\com.example.medminder.app-main-37:\\layout\\fragment_dashboard.xml"
+    },
+    {
+        "merged": "com.example.medminder.app-mergeDebugResources-34:/layout/fragment_home.xml",
+        "source": "com.example.medminder.app-main-37:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\chery\\.gradle\\daemon\\7.3.3\\com.example.medminder.app-mergeDebugResources-34:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\chery\\.gradle\\daemon\\7.3.3\\com.example.medminder.app-main-37:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\chery\\.gradle\\daemon\\7.3.3\\com.example.medminder.app-mergeDebugResources-34:\\layout\\fragment_notifications.xml",
+        "source": "C:\\Users\\chery\\.gradle\\daemon\\7.3.3\\com.example.medminder.app-main-37:\\layout\\fragment_notifications.xml"
+    }
+]
