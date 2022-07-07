@@ -1,4 +1,4 @@
-package com.example.medminder.ui.dashboard;
+package com.example.medminder.ui.Medication;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +10,7 @@ public class DashboardViewModel extends ViewModel {
 
     public DashboardViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("This is today fragment");
     }
 
     public LiveData<String> getText() {

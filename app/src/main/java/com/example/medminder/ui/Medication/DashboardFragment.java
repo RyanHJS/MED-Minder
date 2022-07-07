@@ -1,4 +1,4 @@
-package com.example.medminder.ui.dashboard;
+package com.example.medminder.ui.Medication;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
