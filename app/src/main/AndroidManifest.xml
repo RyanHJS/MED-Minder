@@ -28,7 +28,7 @@
         </activity>
 
         // User Profile Activity
-        <activity android:name="com.example.medminder.UserProfileActivity"
+        <activity android:name=".UserProfileActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.medminder.UserProfileActivity" />
@@ -36,6 +36,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".DisplayEntryActivity"/>
+
+        <activity android:name=".ManualEntryActivity"/>
 
     </application>
 
