@@ -1,4 +1,4 @@
-package com.example.medminder.ui.dashboard;
+package com.example.medminder.ui.medication;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.medminder.databinding.FragmentDashboardBinding;
+import com.example.medminder.databinding.FragmentMedicationBinding;
 
-public class DashboardFragment extends Fragment {
+public class MedicationFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentMedicationBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        MedicationViewModel medicationViewModel =
+                new ViewModelProvider(this).get(MedicationViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentMedicationBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textMedication;
+        medicationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
