@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.medminder.SlidingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:nono="http://com.demo0.nono"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/lock_root"
+    android:background="@drawable/background"
+    tools:context=".LockActivity">
+
+    <TextView
+        android:id="@+id/lock_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="50dp"
+        android:text="17:30"
+        android:textColor="#333333"
+        android:textSize="38sp" />
+
+    <TextView
+        android:textColor="#333333"
+        android:layout_marginTop="5dp"
+        android:layout_alignLeft="@+id/lock_time"
+        android:layout_below="@+id/lock_time"
+        android:text="12月21日 星期三"
+        android:includeFontPadding="false"
+        android:textSize="20sp"
+        android:id="@+id/lock_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/lin_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/widget_size_300"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="11111111"
+            android:textColor="#333333"
+            android:textSize="@dimen/font_size_24" />
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="11111111"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+
+    <com.example.medminder.HintTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:includeFontPadding="false"
+        android:text=">>> 滑动解锁"
+        android:textColor="#ffffff"
+        android:textSize="18sp"/>
+</com.example.medminder.SlidingFinishLayout>
