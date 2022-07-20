@@ -110,7 +110,7 @@ public class SlidingFinishLayout extends RelativeLayout {
 
     private void scrollRight() {
         final int delta = (viewWidth + mParentView.getScrollX());
-        //滚动出界面
+        //Start scrolling by providing a starting point and the distance to travel.
         mScroller.startScroll(mParentView.getScrollX(), 0, -delta + 1, 0,
                 Math.abs(delta));
         postInvalidate();

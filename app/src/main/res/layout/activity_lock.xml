@@ -25,7 +25,7 @@
         android:layout_marginTop="5dp"
         android:layout_alignLeft="@+id/lock_time"
         android:layout_below="@+id/lock_time"
-        android:text="12月21日 星期三"
+        android:text="July 21th Tuesday"
         android:includeFontPadding="false"
         android:textSize="20sp"
         android:id="@+id/lock_date"
@@ -65,7 +65,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
         android:includeFontPadding="false"
-        android:text=">>> 滑动解锁"
+        android:text=">>> swipe right to unlock"
         android:textColor="#ffffff"
         android:textSize="18sp"/>
 </com.example.medminder.SlidingFinishLayout>

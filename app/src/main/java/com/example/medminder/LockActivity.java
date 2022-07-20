@@ -22,6 +22,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+/*
+* This class was created to keep track of prompts in the locked screen state
+* */
 public class LockActivity extends AppCompatActivity implements SlidingFinishLayout.OnSlidingFinishListener {
     private TextView tv_word,tv_2;
     private LinearLayout lin_1;
@@ -122,10 +125,6 @@ public class LockActivity extends AppCompatActivity implements SlidingFinishLayo
 //        }
     }
 
-
-    /**
-     * 重写物理返回键，使不能回退
-     */
     @Override
     public void onBackPressed() {
     }
@@ -134,7 +133,6 @@ public class LockActivity extends AppCompatActivity implements SlidingFinishLayo
 //    public void onWindowFocusChanged(boolean hasFocus) {
 //        super.onWindowFocusChanged(hasFocus);
 //        if (!hasFocus){
-//            //在recent按下时 发送一个recent事件 使recent失效
 //            Intent intent = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
 //            intent.putExtra("reason", "globalactions");
 //            sendBroadcast(intent);
@@ -142,7 +140,7 @@ public class LockActivity extends AppCompatActivity implements SlidingFinishLayo
 //    }
 
     /**
-     * 滑动销毁锁屏页面
+     * set up after swipe, delete the screen lock page
      */
     @Override
     public void onSlidingFinish() {
