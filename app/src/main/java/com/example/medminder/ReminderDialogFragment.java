@@ -25,13 +25,11 @@ public class ReminderDialogFragment extends DialogFragment {
     public static final int[] ID_LABEL = {
             R.string.medication_entry_name,
             R.string.medication_entry_type,
-            R.string.medication_entry_time,
             R.string.medication_special_notes};
 
     //storing EditText data
     public static final String TEXT_TAG = "text";
     private EditText mEditText;
-
 
     /**
      * Create a new instance of DialogFragment
@@ -116,13 +114,14 @@ public class ReminderDialogFragment extends DialogFragment {
         mEditText = new EditText(getContext());
         mEditText.setText(prevText);
 
-        //set input type to "QWERTY" for "Comment" section, else set input type to a number keypad
-        if (id == NOTES_PICKER_ID) {
-            mEditText.setInputType(InputType.TYPE_CLASS_TEXT);
-            mEditText.setHint(R.string.medication_notes_hint);
-        } else {
+        if (id == TYPE_PICKER_ID) {
             mEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         }
+         else {
+            mEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+            mEditText.setHint(R.string.medication_name_hint);
+        }
+
 
         //put the editText into the dialog's view
         dialogBuilder.setView(mEditText);

@@ -69,6 +69,8 @@
     <string name="medication_entry_time">Date and Time</string>
     <string name="medication_special_notes">Special Notes</string>
     <string name="medication_notes_hint">Write Your Notes Here.</string>
+    <string name="medication_name_hint">Write The Medication Name Here.</string>
+    <string name="medication_type_hint">Write The Medication Type Here.</string>
 
     //
     <string name="ok_button">OK</string>
