@@ -172,24 +172,6 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         entry.setmMedicationName(cursor.getString(4));
         entry.setmMedicationType(cursor.getString(5));
         entry.setmMedicationNotes(cursor.getString(6));
-        //convert byte array to ArrayList of LatLng
-        Gson gson = new Gson();
-//        try {
-        if(cursor.getBlob(6) != null) {
-            String json = new String(cursor.getBlob(6));
-            Type type = new TypeToken<ArrayList<LatLng>>() {
-            }.getType();
-//        entry.setmLatLngs((ArrayList<LatLng>)gson.fromJson(json, type));
-            entry.setmLatLngs(gson.fromJson(json, type));
-            Log.d("LPC", "retrieved and turned lat lngs into list ");
-//        } catch (NullPointerException e){
-//            Log.d("LPC", "lat lngs null ");
-//            e.printStackTrace();
-//        }
-        } else {
-            Log.d("LPC", "lat lngs null ");
-        }
-
         return entry;
     }
 }
