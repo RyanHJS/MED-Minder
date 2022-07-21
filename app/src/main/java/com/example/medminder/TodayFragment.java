@@ -23,11 +23,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TodayFragment extends ListFragment {
+public class TodayFragment extends ListFragment implements View.OnClickListener {
     public static ActivityEntriesAdapter adapter;
     public static String ENTRY_ID = "entry id";
     public static String FROM_HISTORY = "from history";
     private ReminderEntryDBHelper mDBHelper;
+    private Intent mHelpIntent;
+    private HelpButtonCustom mHelpButton;
+
+    public static final String HELP_TYPE = "help_type";
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +62,11 @@ public class TodayFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d("lifecycle", "onCreateView: called");
-        return inflater.inflate(R.layout.fragment_today, container, false);
+        View view = inflater.inflate(R.layout.fragment_today, container, false);
+        mHelpButton = (HelpButtonCustom) view.findViewById(R.id.help_button_today);
+        mHelpButton.setOnClickListener(this);
+
+        return view;
     }
 
     /**
@@ -95,14 +103,27 @@ public class TodayFragment extends ListFragment {
         mDBHelper.close();
     }
 
-    /**
-     * Open display entry activity for selected list item
-     *
-     * @param listView ListView
-     * @param view     View
-     * @param position Position in list
-     * @param id       id of selection
-     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.help_button_today:
+                mHelpIntent = new Intent(getActivity(), HelpContentEntryActivity.class);
+                mHelpIntent.putExtra(HELP_TYPE, "today");
+                getActivity().startActivity(mHelpIntent);
+                break;
+            default:
+                break;
+        }
+    }
+
+        /**
+         * Open display entry activity for selected list item
+         *
+         * @param listView ListView
+         * @param view     View
+         * @param position Position in list
+         * @param id       id of selection
+         */
     @Override
     public void onListItemClick(@NonNull ListView listView, @NonNull View view, int position, long id) {
         super.onListItemClick(listView, view, position, id);

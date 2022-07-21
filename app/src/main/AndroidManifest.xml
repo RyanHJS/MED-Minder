@@ -40,7 +40,7 @@
         <activity android:name=".DisplayEntryActivity"/>
 
         <activity android:name=".ManualEntryActivity"/>
-
+        <activity android:name=".HelpContentEntryActivity"/>
     </application>
 
 </manifest>

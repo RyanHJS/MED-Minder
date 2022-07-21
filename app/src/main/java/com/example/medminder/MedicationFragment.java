@@ -17,6 +17,8 @@ public class MedicationFragment extends Fragment implements View.OnClickListener
     private Button mStartButton;
     private Spinner mReminderSpinner, mMedicationSpinner;
     private Intent mIntent;
+    private Intent mHelpIntent;
+    private HelpButtonCustom mHelpButton;
 
     //input types
     public static final String MEDICATION_ENTRY = "Medication";
@@ -45,7 +47,7 @@ public class MedicationFragment extends Fragment implements View.OnClickListener
     //intent keys
     public static final String REMINDER_TYPE = "reminder_type";
     public static final String MEDICATION_TYPE = "medication_type";
-
+    public static final String HELP_TYPE = "help_type";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,18 +57,32 @@ public class MedicationFragment extends Fragment implements View.OnClickListener
         //get buttons and spinners
         //get buttons and spinners
         mStartButton = (Button) view.findViewById(R.id.start_start_button);
+        mHelpButton = (HelpButtonCustom) view.findViewById(R.id.help_button_medication);
         mReminderSpinner = (Spinner) view.findViewById(R.id.medication_input_spinner);
         mMedicationSpinner = (Spinner) view.findViewById(R.id.medication_medication_spinner);
         //bind click listener
         mStartButton.setOnClickListener(this);
+        mHelpButton.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View v) {
-        String reminderType = mReminderSpinner.getSelectedItem().toString();
-        mIntent = new Intent(getActivity(), ManualEntryActivity.class);
-        mIntent.putExtra(REMINDER_TYPE, INPUT_TO_ID_MAP.get(reminderType));
-        getActivity().startActivity(mIntent);
+        switch (v.getId()) {
+            case R.id.start_start_button:
+                String reminderType = mReminderSpinner.getSelectedItem().toString();
+                mIntent = new Intent(getActivity(), ManualEntryActivity.class);
+                mIntent.putExtra(REMINDER_TYPE, INPUT_TO_ID_MAP.get(reminderType));
+                getActivity().startActivity(mIntent);
+                break;
+            case R.id.help_button_medication:
+                mHelpIntent = new Intent(getActivity(), HelpContentEntryActivity.class);
+                mHelpIntent.putExtra(HELP_TYPE, "medication");
+                getActivity().startActivity(mHelpIntent);
+                break;
+            default:
+                break;
+        }
+
     }
 }

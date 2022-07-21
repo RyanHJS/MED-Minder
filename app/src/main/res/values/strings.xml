@@ -83,4 +83,11 @@
     //
     <string name="manual_cancel_msg">Entry Discarded</string>
 
+    // Help Page
+    <string name="help_page_title">Help Title</string>
+    <string name="help_page_subtitle">Help Page</string>
+    <string name="help_page_content">Help Content</string>
+
+
+
 </resources>
