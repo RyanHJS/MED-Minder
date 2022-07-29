@@ -76,6 +76,17 @@
             android:cursorVisible="false"
             android:focusable="false"
             android:focusableInTouchMode="false" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <com.example.medminder.HelpButtonCustom
+            android:id="@+id/help_button_medication"
+            android:layout_marginBottom="20dp"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center" />
     </LinearLayout>
 
 </ScrollView>

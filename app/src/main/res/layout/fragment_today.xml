@@ -17,6 +17,7 @@
 
     <com.example.medminder.HelpButtonCustom
         android:id="@+id/help_button_today"
+        android:layout_marginBottom="20dp"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center" />
