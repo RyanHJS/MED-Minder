@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ReminderEntryDBHelper extends SQLiteOpenHelper {
     //db info (file name, version, table name)
     private static final String DATABASE_NAME = "reminder_entries.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     public static final String TABLE_NAME_ENTRIES = "entry";
 
     //keys for db columns
@@ -28,6 +28,7 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
     public static final String COL_NAME = "medication_name";
     public static final String COL_TYPE = "nedication_type";
     public static final String COL_NOTES = "notes";
+    public static final String COL_CONFIRM = "confirmed_dosage";
 
 
     private SQLiteDatabase database;
@@ -41,7 +42,8 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
             + COL_DATE_TIME + " DATETIME NOT NULL, "
             + COL_NAME + " TEXT, "
             + COL_TYPE + " TEXT, "
-            + COL_NOTES + " TEXT);";
+            + COL_NOTES + " TEXT, "
+            + COL_CONFIRM + " INTEGER);";
 
     //Following method headers and comments are from course web page:
     //https://www.cs.dartmouth.edu/~xingdong/Teaching/CS65/myruns/database.html
@@ -84,6 +86,7 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         values.put(COL_NAME, entry.getmMedicationName());
         values.put(COL_TYPE, entry.getmReminderType());
         values.put(COL_NOTES, entry.getmMedicationNotes());
+        values.put(COL_CONFIRM, entry.getmConfirmed());
 //        //change latlng list of positions to byte array
         Gson gson = new Gson();
         String json = gson.toJson(entry.getmLatLngs());
@@ -106,6 +109,28 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         database = getWritableDatabase();
         database.delete(TABLE_NAME_ENTRIES,
                 COL_ROW + " = " + id, null);
+        //close database
+        database.close();
+
+    }
+
+    /**
+     * Update an entry by its id in the db
+     */
+    public void updateEntry(ReminderEntry entry) {
+        database = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COL_REMINDER_TYPE, entry.getmReminderType());
+        values.put(COL_MEDICATION_TYPE, entry.getmMReminderMedicationType());
+        values.put(COL_DATE_TIME, entry.getmDateTime());
+        values.put(COL_NAME, entry.getmMedicationName());
+        values.put(COL_TYPE, entry.getmReminderType());
+        values.put(COL_NOTES, entry.getmMedicationNotes());
+        values.put(COL_CONFIRM, entry.getmConfirmed());
+
+        String[] id = new String[]{entry.getId().toString()};
+        database.update(TABLE_NAME_ENTRIES, values, "_id = ?", id);
+
         //close database
         database.close();
 

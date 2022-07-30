@@ -56,6 +56,8 @@ public class DisplayEntryActivity extends AppCompatActivity {
         super.onCreateOptionsMenu(menu);
         menu.add(Menu.NONE,0,0,"DELETE").
                 setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(Menu.NONE,1,1,"CONFIRM").
+                setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -66,9 +68,13 @@ public class DisplayEntryActivity extends AppCompatActivity {
      */
     public boolean onOptionsItemSelected(MenuItem item){
         super.onOptionsItemSelected(item);
-        if(TodayFragment.adapter.getCount()>0) {
+        if(item.getTitle().equals("DELETE")) {
             DeleteThread deleteThread = new DeleteThread();
             deleteThread.start();
+        }
+        if(item.getTitle().equals("CONFIRM")) {
+            ConfirmThread confirmThread = new ConfirmThread();
+            confirmThread.start();
         }
         this.finish();
         return true;
@@ -102,6 +108,30 @@ public class DisplayEntryActivity extends AppCompatActivity {
         //run the deletion on a worker thread
         public void run(){
             if(mDBHelper != null) mDBHelper.removeEntry(mEntryID);
+            handler.post(runnable);
+        }
+    }
+    /**
+     * Worker thread to run deletion on
+     */
+    private class ConfirmThread extends Thread{
+        //runnable to update adapter and UI in history fragment and show toast
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                TodayFragment.adapter.notifyDataSetChanged();
+                Toast.makeText(getApplicationContext(), "Entry #"+mEntryID+" confirmed.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        };
+        Handler handler  = new Handler(Looper.getMainLooper());
+        //run the confirmation on a worker thread
+        public void run(){
+            if(mDBHelper != null) {
+                ReminderEntry eEntry = mDBHelper.fetchEntryByIndex(mEntryID);
+                eEntry.setmConfirmed(1);
+                mDBHelper.updateEntry(eEntry);
+            }
             handler.post(runnable);
         }
     }

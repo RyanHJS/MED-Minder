@@ -3,6 +3,7 @@ package com.example.medminder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -90,6 +92,7 @@ public class TodayFragment extends ListFragment implements View.OnClickListener 
     public void onResume() {
         super.onResume();
         if (mDBHelper == null) mDBHelper = new ReminderEntryDBHelper(getContext());
+        mDBHelper.fetchAllEntries();
         if (adapter == null )
             adapter = new ActivityEntriesAdapter(getContext(), R.layout.reminder_list_items, new ArrayList<>());
     }
@@ -184,6 +187,15 @@ public class TodayFragment extends ListFragment implements View.OnClickListener 
             //set the second line of the view
             TextView secondLine = (TextView) convertView.findViewById(R.id.history_list_second_line);
             secondLine.setText(formatSecondLine(eEntry));
+
+            //Set colour if confirmed
+            LinearLayout reminderItemContainer = (LinearLayout) convertView.findViewById(R.id.reminder_item_container);
+            if (eEntry.getmConfirmed() == 1) {
+                reminderItemContainer.setBackgroundColor(Color.parseColor("#4ab57c"));
+            } else {
+                reminderItemContainer.setBackgroundColor(Color.parseColor("#dddfdf"));
+            }
+
 
             //set the id of each view
             convertView.setTag(eEntry.getId());

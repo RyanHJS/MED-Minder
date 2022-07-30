@@ -15,6 +15,7 @@ public class ReminderEntry {
     private String mMedicationName;         // Medication name
     private String mMedicationType;      // Distance traveled. Either in meters or feet.
     private String mMedicationNotes;       // Comments
+    private int mConfirmed;
     private ArrayList<LatLng> mLatLngs;
 
     /**
@@ -87,7 +88,14 @@ public class ReminderEntry {
     public String getmMedicationNotes() {
         return mMedicationNotes;
     }
+    //Medication notes getter and setter
 
+    public void setmConfirmed(int confirmed) {
+        this.mConfirmed = confirmed;
+    }
+    public int getmConfirmed() {
+        return mConfirmed;
+    }
 
     //latlngs setter getter and add
     public ArrayList<LatLng> getmLatLngs() { return mLatLngs; }
