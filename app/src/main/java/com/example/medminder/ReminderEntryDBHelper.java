@@ -129,7 +129,9 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         values.put(COL_CONFIRM, entry.getmConfirmed());
 
         String[] id = new String[]{entry.getId().toString()};
-        database.update(TABLE_NAME_ENTRIES, values, "_id = ?", id);
+        int updatedId = database.update(TABLE_NAME_ENTRIES, values, "_id = ?", id);
+        Log.d("Update", "Rows affected: "+updatedId);
+
 
         //close database
         database.close();
@@ -197,6 +199,7 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         entry.setmMedicationName(cursor.getString(4));
         entry.setmMedicationType(cursor.getString(5));
         entry.setmMedicationNotes(cursor.getString(6));
+        entry.setmConfirmed(cursor.getInt(7));
         return entry;
     }
 }

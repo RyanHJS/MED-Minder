@@ -15,6 +15,7 @@ import androidx.preference.PreferenceManager;
 public class DisplayEntryActivity extends AppCompatActivity {
     //instance vars
     private long mEntryID;
+    private ReminderEntry currentEntry;
     private ReminderEntryDBHelper mDBHelper;
 
     @Override
@@ -29,6 +30,7 @@ public class DisplayEntryActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         mEntryID = bundle.getLong(TodayFragment.ENTRY_ID);
         ReminderEntry eEntry = mDBHelper.fetchEntryByIndex(mEntryID);
+        this.currentEntry = eEntry;
 
         //set up and fill in widgets (edit texts)
 
@@ -56,7 +58,9 @@ public class DisplayEntryActivity extends AppCompatActivity {
         super.onCreateOptionsMenu(menu);
         menu.add(Menu.NONE,0,0,"DELETE").
                 setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.add(Menu.NONE,1,1,"CONFIRM").
+
+        String secondaryAction = this.currentEntry.getmConfirmed() == 1 ? "UNCONFIRM" : "CONFIRM";
+        menu.add(Menu.NONE,1,1,secondaryAction).
                 setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
@@ -72,7 +76,7 @@ public class DisplayEntryActivity extends AppCompatActivity {
             DeleteThread deleteThread = new DeleteThread();
             deleteThread.start();
         }
-        if(item.getTitle().equals("CONFIRM")) {
+        if(item.getTitle().toString().contains("CONFIRM")) {
             ConfirmThread confirmThread = new ConfirmThread();
             confirmThread.start();
         }
@@ -112,7 +116,7 @@ public class DisplayEntryActivity extends AppCompatActivity {
         }
     }
     /**
-     * Worker thread to run deletion on
+     * Worker thread to run update confirmation on
      */
     private class ConfirmThread extends Thread{
         //runnable to update adapter and UI in history fragment and show toast
@@ -129,10 +133,11 @@ public class DisplayEntryActivity extends AppCompatActivity {
         public void run(){
             if(mDBHelper != null) {
                 ReminderEntry eEntry = mDBHelper.fetchEntryByIndex(mEntryID);
-                eEntry.setmConfirmed(1);
+                eEntry.setmConfirmed(eEntry.getmConfirmed() == 1 ? 0 : 1);
                 mDBHelper.updateEntry(eEntry);
             }
             handler.post(runnable);
         }
     }
+
 }
