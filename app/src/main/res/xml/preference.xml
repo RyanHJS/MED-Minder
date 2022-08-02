@@ -43,4 +43,21 @@
 
     </androidx.preference.PreferenceCategory>
 
+    <!-- Misc. -->
+    <androidx.preference.PreferenceCategory
+        app:iconSpaceReserved="false"
+        android:title="Helpline">
+
+        <androidx.preference.PreferenceScreen
+            app:iconSpaceReserved="false"
+            android:title="Alzheimer Helpline"
+            android:summary="If you have questions about Alzheimer's disease or other dementias, call the Alzheimer Society of B.C.'s First Link® Dementia Helpline for information and support (toll-free): English: 1-800-936-6033 (Monday to Friday, 9 a.m. to 8 p.m.)">
+            <intent android:action="android.intent.action.DIAL"
+                android:data="tel:1-800-936-6033"/>
+        </androidx.preference.PreferenceScreen>
+
+
+    </androidx.preference.PreferenceCategory>
+
+
 </PreferenceScreen>
