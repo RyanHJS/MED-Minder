@@ -45,7 +45,7 @@
     // Medication tab
     <string name="medication_input_type">Reminder Type</string>
     <string name="medication_medication_type">Medication Type</string>
-    <string name="start_button">Start</string>
+    <string name="start_button">Create a reminder</string>
 
     <!-- Spinner Options -->
     <string-array name="medication_input_spinner_list">
