@@ -28,10 +28,10 @@ public class HelpContentEntryActivity extends AppCompatActivity {
 
         //Help page title
         TextView helpPageTitle = (TextView) findViewById(R.id.help_title);
-        helpPageTitle.setText("Medication");
+        helpPageTitle.setText("Medication\n");
         //Help page content type
         TextView helpPageContent = (TextView) findViewById(R.id.help_content);
-        helpPageContent.setText("Hi! To create a reminder press start and you will be prompted to enter information such as the Data and Time you want to be reminded, the Medication Name, the Medication Type, and any Special Notes that you may find helpful. Press back to continue where you left off. (Page work in progress)");
+        helpPageContent.setText("\nHi! To create a reminder press start and you will be prompted to enter information such as the Data and Time you want to be reminded, the Medication Name, the Medication Type, and any Special Notes that you may find helpful. Press back to continue where you left off.\n");
     }
 
     public void helpToday(){
@@ -40,9 +40,9 @@ public class HelpContentEntryActivity extends AppCompatActivity {
 
         //Help page title
         TextView helpPageTitle = (TextView) findViewById(R.id.help_title);
-        helpPageTitle.setText("Today");
+        helpPageTitle.setText("Today\n");
         //Help page content type
         TextView helpPageContent = (TextView) findViewById(R.id.help_content);
-        helpPageContent.setText("Here you can see all you reminders! All your reminders that you created for today will show up here. Click on the reminder to see the detailed view such as Medication Name, Type, and your Special Note. Press back to continue where you left off. (Page work in progress)");
+        helpPageContent.setText("\nHere you can see all you reminders! All your reminders that you created for today will show up here. Click on the reminder to see the detailed view such as Medication Name, Type, and your Special Note. Press back to continue where you left off.\n");
     }
 }
