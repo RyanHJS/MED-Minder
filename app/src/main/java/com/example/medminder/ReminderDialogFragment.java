@@ -140,7 +140,7 @@ public class ReminderDialogFragment extends DialogFragment {
                 if (id == NAME_PICKER_ID) {
                     ManualEntryActivity.entry.setmMedicationName(input);
                 } else if (id == QUANTITY_PICKER_ID) {
-                    ManualEntryActivity.entry.setmMedicationType(input);
+                    ManualEntryActivity.entry.setmMedicationQuantity(input);
                 } else if (id == NOTES_PICKER_ID) {
                     ManualEntryActivity.entry.setmMedicationNotes(input);
                 }

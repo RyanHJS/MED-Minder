@@ -26,7 +26,7 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
     public static final String COL_MEDICATION_TYPE = "medication_type";
     public static final String COL_DATE_TIME = "date_time";
     public static final String COL_NAME = "medication_name";
-    public static final String COL_TYPE = "medication_type";
+    public static final String COL_QUANTITY = "quantity";
     public static final String COL_NOTES = "notes";
     public static final String COL_CONFIRM = "confirmed_dosage";
 
@@ -41,13 +41,9 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
             + COL_MEDICATION_TYPE + " INTEGER NOT NULL, "
             + COL_DATE_TIME + " DATETIME NOT NULL, "
             + COL_NAME + " TEXT, "
-            + COL_TYPE + " TEXT, "
+            + COL_QUANTITY + " TEXT, "
             + COL_NOTES + " TEXT, "
             + COL_CONFIRM + " INTEGER);";
-
-    //Following method headers and comments are from course web page:
-    //https://www.cs.dartmouth.edu/~xingdong/Teaching/CS65/myruns/database.html
-
 
     public ReminderEntryDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -84,7 +80,7 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         values.put(COL_MEDICATION_TYPE, entry.getmMReminderMedicationType());
         values.put(COL_DATE_TIME, entry.getmDateTime());
         values.put(COL_NAME, entry.getmMedicationName());
-        values.put(COL_TYPE, entry.getmReminderType());
+        values.put(COL_QUANTITY, entry.getmMedicationQuantity());
         values.put(COL_NOTES, entry.getmMedicationNotes());
         values.put(COL_CONFIRM, entry.getmConfirmed());
 
@@ -120,7 +116,7 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         values.put(COL_MEDICATION_TYPE, entry.getmMReminderMedicationType());
         values.put(COL_DATE_TIME, entry.getmDateTime());
         values.put(COL_NAME, entry.getmMedicationName());
-        values.put(COL_TYPE, entry.getmReminderType());
+        values.put(COL_QUANTITY, entry.getmMedicationQuantity());
         values.put(COL_NOTES, entry.getmMedicationNotes());
         values.put(COL_CONFIRM, entry.getmConfirmed());
 
@@ -193,7 +189,7 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         entry.setmMReminderMedicationType(cursor.getInt(2));
         entry.setmDateTime(cursor.getLong(3));
         entry.setmMedicationName(cursor.getString(4));
-        entry.setmMedicationType(cursor.getString(5));
+        entry.setmMedicationQuantity(cursor.getString(5));
         entry.setmMedicationNotes(cursor.getString(6));
         entry.setmConfirmed(cursor.getInt(7));
         return entry;

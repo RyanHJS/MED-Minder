@@ -42,8 +42,8 @@ public class DisplayEntryActivity extends AppCompatActivity {
         EditText medicationNameText = (EditText) findViewById(R.id.medication_name);
         medicationNameText.setText(eEntry.getmMedicationName());
         //Medication type
-        EditText medicationTypeText = (EditText) findViewById(R.id.medication_type);
-        medicationTypeText.setText(eEntry.getmMedicationType());
+        EditText medicationQuantityText = (EditText) findViewById(R.id.medication_quantity);
+        medicationQuantityText.setText(eEntry.getmMedicationQuantity());
         //Medication notes
         EditText medicationNotesText = (EditText) findViewById(R.id.medication_notes);
         medicationNotesText.setText(eEntry.getmMedicationNotes());

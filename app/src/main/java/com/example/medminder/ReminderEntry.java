@@ -7,13 +7,12 @@ import java.util.Calendar;
 
 public class ReminderEntry {
 
-    //instance vars taken from course webpage
     private long id;
     private int mReminderType;  // Medication, General, Special Events
     private int mMReminderMedicationType;     // 1,2,3,4,5
     private long mDateTime = Calendar.getInstance().getTimeInMillis();    // When does this entry happen
     private String mMedicationName;         // Medication name
-    private String mMedicationType;      // Distance traveled. Either in meters or feet.
+    private String mMedicationQuantity;
     private String mMedicationNotes;       // Comments
     private int mConfirmed;
     private ArrayList<LatLng> mLatLngs;
@@ -24,6 +23,7 @@ public class ReminderEntry {
     public ReminderEntry() {
         mReminderType = 0;
         mMReminderMedicationType = 0;
+        mMedicationQuantity = "1 tablet";
         mLatLngs = new ArrayList<>();
     }
 
@@ -71,13 +71,12 @@ public class ReminderEntry {
         return mMedicationName;
     }
 
-
-    //Medication Type getter and setter
-    public void setmMedicationType(String mMedicationType) {
-        this.mMedicationType = mMedicationType;
+    //Medication Quantity getter and setter
+    public void setmMedicationQuantity (String mMedicationQuantity) {
+        this.mMedicationQuantity = mMedicationQuantity;
     }
-    public String getmMedicationType() {
-        return mMedicationType;
+    public String getmMedicationQuantity() {
+        return mMedicationQuantity;
     }
 
 
@@ -88,7 +87,6 @@ public class ReminderEntry {
     public String getmMedicationNotes() {
         return mMedicationNotes;
     }
-    //Medication notes getter and setter
 
     public void setmConfirmed(int confirmed) {
         this.mConfirmed = confirmed;

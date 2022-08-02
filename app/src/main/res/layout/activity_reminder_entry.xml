@@ -29,7 +29,7 @@
             android:focusable="false"
             android:focusableInTouchMode="false" />
 
-        <!--MEDICATION TYPE-->
+        <!--MEDICATION QUANTITY-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             android:text="@string/medication_entry_quantity" />
 
         <EditText
-            android:id="@+id/medication_type"
+            android:id="@+id/medication_quantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="false"
