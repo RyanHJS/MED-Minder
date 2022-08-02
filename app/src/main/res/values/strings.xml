@@ -54,11 +54,11 @@
         <item>Special Events</item>
     </string-array>
     <string-array name="medication_type_spinner_list">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
+        <item>Tablet</item>
+        <item>Capsule</item>
+        <item>Liquid</item>
+        <item>Drops</item>
+        <item>Injection</item>
     </string-array>
 
     // Medication entries

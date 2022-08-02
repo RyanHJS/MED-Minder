@@ -362,7 +362,7 @@ public class ManualEntryActivity extends AppCompatActivity implements AdapterVie
             @Override
             public void run() {
                 if(TodayFragment.adapter != null) TodayFragment.adapter.notifyDataSetChanged();
-                Toast.makeText(getApplicationContext(), "Entry #"+id+" saved.",
+                Toast.makeText(getApplicationContext(), "Entry #"+ id +" saved.",
                         Toast.LENGTH_SHORT).show();
             }
         };

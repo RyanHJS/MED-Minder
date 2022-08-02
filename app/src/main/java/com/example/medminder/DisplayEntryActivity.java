@@ -104,7 +104,7 @@ public class DisplayEntryActivity extends AppCompatActivity {
             @Override
             public void run() {
                 TodayFragment.adapter.notifyDataSetChanged();
-                Toast.makeText(getApplicationContext(), "Entry #"+mEntryID+" deleted.",
+                Toast.makeText(getApplicationContext(), "Entry deleted.",
                         Toast.LENGTH_SHORT).show();
             }
         };

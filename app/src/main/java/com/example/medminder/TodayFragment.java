@@ -290,34 +290,6 @@ public class TodayFragment extends ListFragment implements View.OnClickListener 
         return sdf.format(date);
     }
 
-    /**
-     * Convert the duration from seconds to the proper format
-     *
-     * @param duration duration
-     * @return duration in terms of mintues and seconds
-     */
-    public static String formatDuration(double duration) {
-        int minutes = (int) (duration / 60);
-        int seconds = (int) (duration % 60);
-        if (minutes == 0 && seconds == 0) return "0 secs";
-        return "" + minutes + " min " + seconds + " secs";
-    }
-
-    /**
-     * Convert the distance from kilometers to the proper format
-     *
-     * @param distance distance value
-     * @param unitPref km or mi
-     * @return distance in the specifiec unit
-     */
-    public static String formatDistance(double distance, String unitPref) {
-
-        if (unitPref.equals("Kilometers")) {
-            distance /= 0.621371; // converts from km to miles
-        }
-        return String.format("%.2f", distance) + " " + unitPref;
-    }
-
 //*******THREAD FOR LOADING IN ALL THE ENTRIES*******//
     private class LoaderThread extends Thread {
         List<ReminderEntry> list = null;

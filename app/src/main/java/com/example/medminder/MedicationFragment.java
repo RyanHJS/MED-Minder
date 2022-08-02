@@ -35,14 +35,14 @@ public class MedicationFragment extends Fragment implements View.OnClickListener
     public static final Map<String,Integer> ACTIVITY_TO_ID_MAP;
     static{
         ACTIVITY_TO_ID_MAP = new HashMap<>();
-        ACTIVITY_TO_ID_MAP.put("1", 0);
-        ACTIVITY_TO_ID_MAP.put("2", 1);
-        ACTIVITY_TO_ID_MAP.put("3", 2);
-        ACTIVITY_TO_ID_MAP.put("4", 3);
-        ACTIVITY_TO_ID_MAP.put("5", 4);
+        ACTIVITY_TO_ID_MAP.put("Tablet", 0);
+        ACTIVITY_TO_ID_MAP.put("Capsule", 1);
+        ACTIVITY_TO_ID_MAP.put("Liquid", 2);
+        ACTIVITY_TO_ID_MAP.put("Drops", 3);
+        ACTIVITY_TO_ID_MAP.put("Injection", 4);
     }
-    public static final String[] ACTIVITY_TO_ID = {"1", "2", "3",
-            "4", "5"};
+    public static final String[] ACTIVITY_TO_ID = {"Tablet", "Capsule", "Liquid",
+            "Drops", "Injection"};
 
     //intent keys
     public static final String REMINDER_TYPE = "reminder_type";
