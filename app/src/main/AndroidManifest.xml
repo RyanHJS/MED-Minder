@@ -46,6 +46,16 @@
         <activity android:name=".ManualEntryActivity"/>
         <activity android:name=".HelpContentEntryActivity"/>
 
+        // Streak Activity
+        <activity android:name=".CustomStreakDialog"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.medminder.CustomStreakDialog" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <receiver android:name=".AlarmReceiver"/>
     </application>
 

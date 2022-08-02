@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ReminderEntryDBHelper extends SQLiteOpenHelper {
     //db info (file name, version, table name)
     private static final String DATABASE_NAME = "reminder_entries.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     public static final String TABLE_NAME_ENTRIES = "entry";
 
     //keys for db columns
@@ -123,11 +123,6 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         String[] id = new String[]{entry.getId().toString()};
         int updatedId = database.update(TABLE_NAME_ENTRIES, values, "_id = ?", id);
         Log.d("Update", "Rows affected: "+updatedId);
-
-
-        //close database
-        database.close();
-
     }
 
     /**
@@ -172,7 +167,6 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         }
         //close cursor and database
         cursor.close();
-        database.close();
         return entries;
     }
 

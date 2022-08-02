@@ -59,5 +59,19 @@
 
     </androidx.preference.PreferenceCategory>
 
+    <androidx.preference.PreferenceCategory
+        app:iconSpaceReserved="false"
+        android:title="Weekly Medication Reminder Streak">
+
+        <androidx.preference.PreferenceScreen
+            app:iconSpaceReserved="false"
+            android:title="Click here to view your streak">
+            <intent
+                android:action="com.example.medminder.CustomStreakDialog" />
+        </androidx.preference.PreferenceScreen>
+
+
+    </androidx.preference.PreferenceCategory>
+
 
 </PreferenceScreen>

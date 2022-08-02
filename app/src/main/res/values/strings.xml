@@ -90,6 +90,7 @@
     <string name="help_page_subtitle">Help Page</string>
     <string name="help_page_content">Help Content</string>
 
-
+    // Streak
+    <string name="weekly_streak_title">Weekly Medication Reminder Streak</string>
 
 </resources>
