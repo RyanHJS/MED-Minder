@@ -20,11 +20,11 @@ public class ReminderDialogFragment extends DialogFragment {
 
     //dialog ids and titles
     public static final int NAME_PICKER_ID = 0;
-    public static final int TYPE_PICKER_ID = 1;
+    public static final int QUANTITY_PICKER_ID = 1;
     public static final int NOTES_PICKER_ID = 2;
     public static final int[] ID_LABEL = {
             R.string.medication_entry_name,
-            R.string.medication_entry_type,
+            R.string.medication_entry_quantity,
             R.string.medication_special_notes};
 
     //storing EditText data
@@ -114,14 +114,18 @@ public class ReminderDialogFragment extends DialogFragment {
         mEditText = new EditText(getContext());
         mEditText.setText(prevText);
 
-        if (id == TYPE_PICKER_ID) {
-            mEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        if (id == QUANTITY_PICKER_ID) {
+            mEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+            mEditText.setHint(R.string.medication_quantity_hint);
         }
-         else {
+         else if (id == NAME_PICKER_ID) {
             mEditText.setInputType(InputType.TYPE_CLASS_TEXT);
             mEditText.setHint(R.string.medication_name_hint);
         }
-
+        else if (id == NOTES_PICKER_ID) {
+            mEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+            mEditText.setHint(R.string.medication_notes_hint);
+        }
 
         //put the editText into the dialog's view
         dialogBuilder.setView(mEditText);
@@ -135,7 +139,7 @@ public class ReminderDialogFragment extends DialogFragment {
                 //set the current entry's attributes when "OK" is clicked
                 if (id == NAME_PICKER_ID) {
                     ManualEntryActivity.entry.setmMedicationName(input);
-                } else if (id == TYPE_PICKER_ID) {
+                } else if (id == QUANTITY_PICKER_ID) {
                     ManualEntryActivity.entry.setmMedicationType(input);
                 } else if (id == NOTES_PICKER_ID) {
                     ManualEntryActivity.entry.setmMedicationNotes(input);

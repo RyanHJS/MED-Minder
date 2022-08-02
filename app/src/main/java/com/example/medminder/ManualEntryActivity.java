@@ -26,13 +26,13 @@ public class ManualEntryActivity extends AppCompatActivity implements AdapterVie
         DatePickerDialog.OnDateSetListener {
 
     //labels for ListView
-    public static final String[] MANUAL_OPTIONS = new String[]{"Date", "Time", "Medication Name", "Medication Type", "Special Notes"};
+    public static final String[] MANUAL_OPTIONS = new String[]{"Date", "Time", "Medication Name", "Quantity", "Special Notes"};
 
     //positions in the ListView
     private static final int DATE_POS = 0;
     private static final int TIME_POS = 1;
     private static final int NAME_POS = 2;
-    private static final int TYPE_POS = 3;
+    private static final int QUANTITY_POS = 3;
     private static final int COMMENT_POS = 4;
 
 
@@ -153,10 +153,10 @@ public class ManualEntryActivity extends AppCompatActivity implements AdapterVie
             mDialogFragment =
                     ReminderDialogFragment.newInstance(ReminderDialogFragment.NAME_PICKER_ID);
             mDialogFragment.show(getSupportFragmentManager(), getString(R.string.medication_entry_name));
-        } else if (position == TYPE_POS) {
+        } else if (position == QUANTITY_POS) {
             mDialogFragment =
-                    ReminderDialogFragment.newInstance(ReminderDialogFragment.TYPE_PICKER_ID);
-            mDialogFragment.show(getSupportFragmentManager(), getString(R.string.medication_entry_type));
+                    ReminderDialogFragment.newInstance(ReminderDialogFragment.QUANTITY_PICKER_ID);
+            mDialogFragment.show(getSupportFragmentManager(), getString(R.string.medication_entry_quantity));
         } else if (position == COMMENT_POS) {
             mDialogFragment =
                     ReminderDialogFragment.newInstance(ReminderDialogFragment.NOTES_PICKER_ID);

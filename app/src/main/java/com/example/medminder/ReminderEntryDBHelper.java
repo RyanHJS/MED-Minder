@@ -26,7 +26,7 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
     public static final String COL_MEDICATION_TYPE = "medication_type";
     public static final String COL_DATE_TIME = "date_time";
     public static final String COL_NAME = "medication_name";
-    public static final String COL_TYPE = "nedication_type";
+    public static final String COL_TYPE = "medication_type";
     public static final String COL_NOTES = "notes";
     public static final String COL_CONFIRM = "confirmed_dosage";
 
@@ -87,10 +87,6 @@ public class ReminderEntryDBHelper extends SQLiteOpenHelper {
         values.put(COL_TYPE, entry.getmReminderType());
         values.put(COL_NOTES, entry.getmMedicationNotes());
         values.put(COL_CONFIRM, entry.getmConfirmed());
-//        //change latlng list of positions to byte array
-        Gson gson = new Gson();
-        String json = gson.toJson(entry.getmLatLngs());
-        Log.d("LPC", "insertEntry: saving lat lngs list of length "+entry.getmLatLngs().size());
 
         //insert new row into db
 //        SQLiteDatabase database = getWritableDatabase();
