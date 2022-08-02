@@ -1,15 +1,24 @@
 package com.example.medminder;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
-
 import java.util.ArrayList;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.provider.Settings;
+import android.support.v4.media.session.IMediaSession;
+import android.util.Log;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,4 +73,5 @@ public class MainActivity extends AppCompatActivity {
         tabLayoutMediator.attach();
 
     }
+
 }

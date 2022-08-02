@@ -22,22 +22,31 @@
         android:layout_margin="10dp">
 
         <Button
-            android:id="@+id/manual_save_button"
-            android:layout_width="wrap_content"
+            android:id="@+id/set_alarm"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:onClick="onSetAlarm"
+            android:text="Set Alarm"/>
+
+        <Button
+            android:id="@+id/manual_save_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:onClick="onSaveClick"
-            android:text="@string/save_button"/>
+            android:text="Save Entry"/>
+
 
         <Button
             android:id="@+id/manual_cancel_button"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:onClick="onCancelClick"
-            android:text="@string/cancel_button"/>
+            android:text="Cancel Entry"/>
 
     </LinearLayout>
 

@@ -1,9 +1,16 @@
 package com.example.medminder;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,6 +25,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
+import androidx.preference.PreferenceManager;
+
+import com.example.medminder.databinding.ActivityMainBinding;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -45,6 +55,11 @@ public class ManualEntryActivity extends AppCompatActivity implements AdapterVie
     private static final String YEAR_TAG = "year";
     private static final String MONTH_TAG = "month";
     private static final String DAY_TAG = "day";
+
+    // Alarm
+    private AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
+    private Calendar calendar;
 
 //    public SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss aa MMM dd yyyy");
 
@@ -77,6 +92,8 @@ public class ManualEntryActivity extends AppCompatActivity implements AdapterVie
         //initialize an entry and the db helper
         entry = new ReminderEntry();
 
+        createNotificationChannel();
+
         Bundle bundle = getIntent().getExtras();
         entry.setmReminderType(bundle.getInt(MedicationFragment.REMINDER_TYPE,0));
         entry.setmMReminderMedicationType(bundle.getInt(MedicationFragment.MEDICATION_TYPE,0));
@@ -97,8 +114,46 @@ public class ManualEntryActivity extends AppCompatActivity implements AdapterVie
                 onDateClicked();
             }
         }
+
+//        startAlert();
+
     }
 
+//    public void startAlert(){
+//        int i = 5;
+//        Intent intent = new Intent(this, MyBroadcastReceiver.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+//                this.getApplicationContext(), 234324243, intent, 0);
+//        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+//        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
+//                + (i * 1000), pendingIntent);
+//        Toast.makeText(this, "Alarm set in " + i + " seconds",Toast.LENGTH_LONG).show();
+//    }
+
+    private void setAlarm() {
+        Log.d("DEBUG","In setAlarm");
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this,AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(this,0,intent,PendingIntent.FLAG_IMMUTABLE);
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP,mDateAndTime.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY,pendingIntent);
+        Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
+    }
+
+    private void createNotificationChannel() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Log.d("DEBUG","In createNotificationChannel");
+            CharSequence name = "Alarm Channel";
+            String description = "Channel For Alarm Manager";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("Alarm", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
 
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -261,6 +316,9 @@ public class ManualEntryActivity extends AppCompatActivity implements AdapterVie
         this.finish();
     }
 
+    public void onSetAlarm(View view) {
+        setAlarm();
+    }
 
 //********CUSTOM DATE/TIME PICKER DIALOGS********//
 

@@ -4,6 +4,8 @@
     package="com.example.medminder">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -43,6 +45,8 @@
 
         <activity android:name=".ManualEntryActivity"/>
         <activity android:name=".HelpContentEntryActivity"/>
+
+        <receiver android:name=".AlarmReceiver"/>
     </application>
 
 </manifest>
