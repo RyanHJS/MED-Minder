@@ -37,11 +37,11 @@ public class    AlarmReceiver extends BroadcastReceiver {
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
         notificationManagerCompat.notify(123,builder.build());
 
-        MediaPlayer mp = MediaPlayer.create(context, Settings.System.DEFAULT_RINGTONE_URI); // the sound that should be played at 13:52
+        MediaPlayer mp = MediaPlayer.create(context, R.raw.blips);
         mp.start();
         Toast.makeText(context, "MedMinder alarm", Toast.LENGTH_LONG).show();
 
-        new CountDownTimer(3000, 1000) {
+        new CountDownTimer(5000, 1000) {
 
             public void onTick(long millisUntilFinished) {
             }
