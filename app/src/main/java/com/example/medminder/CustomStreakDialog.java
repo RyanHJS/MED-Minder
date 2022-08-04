@@ -21,8 +21,13 @@ public class CustomStreakDialog extends AppCompatActivity {
         int totalReminders = reminders.size();
         int confirmedReminders = this.getConfirmedReminders(reminders);
         TextView streakTextView = (TextView) findViewById(R.id.streak_confirmed_total);
-        String streakInformation = "You have completed " + confirmedReminders + " medication reminders out of " + totalReminders + " this week.";
+        TextView streakPercentView = (TextView) findViewById(R.id.streak_percent);
+
+        String streakInformation = "You have completed " + confirmedReminders + " medication reminders out of " + totalReminders + " this week. Complete the remaining " + (totalReminders - confirmedReminders) + " for 100%.";
+        float percent = (100 * confirmedReminders) / totalReminders;
+        String streakPercent = String.format("%.0f%%",percent);
         streakTextView.setText(streakInformation);
+        streakPercentView.setText("Your streak progress is at " + streakPercent);
     }
     
     private int getConfirmedReminders(ArrayList<ReminderEntry> reminderEntries) {
